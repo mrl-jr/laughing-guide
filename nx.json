@@ -34,5 +34,7 @@
       "!{projectRoot}/tsconfig.spec.json"
     ],
     "sharedGlobals": []
-  }
+  },
+  "nxCloudAccessToken": "NzhiZDgxODktNzA2MS00Yjc5LWFlNTEtN2M4Nzg4N2FmYmNjfHJlYWQtd3JpdGU=",
+  "nxCloudUrl": "https://staging.nx.app"
 }
