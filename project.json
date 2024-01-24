@@ -1,0 +1,71 @@
+{
+  "name": "test-b",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "./src",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["./src"]
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/test-b",
+        "skipTypeCheck": true
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "test-b:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "test-b:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "test-b:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "test-b:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "test-b:build:development"
+        },
+        "production": {
+          "buildTarget": "test-b:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "coverage/test-b"
+      }
+    }
+  }
+}
